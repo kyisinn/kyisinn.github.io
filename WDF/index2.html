@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Story</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffdce0, #ffe0f5);
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+      color: #4d2c2c;
+      overflow-x: hidden;
+    }
+
+    section {
+      display: none;
+      padding: 60px 20px;
+      min-height: 100vh;
+      position: relative;
+      animation: fadeSlide 1s ease forwards;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h1.headline {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #e91e63;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 1em;
+      border: none;
+      border-radius: 40px;
+      background-color: #e91e63;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      animation: fadeInButton 2s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+      transform: scale(1.08);
+    }
+
+    @keyframes fadeInButton {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .photo-gallery {
+      margin: 40px auto;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .photo-gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .letter {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 240, 246, 0.8);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+      line-height: 1.8;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      animation: fadeInBox 1.5s ease;
+    }
+
+    @keyframes fadeInBox {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    video {
+      width: auto;
+      height: 90vh;
+      max-height: 600px;
+      aspect-ratio: 9 / 16;
+      display: block;
+      margin: 0 auto;
+      border-radius: 15px;
+      background-color: black;
+      object-fit: contain;
+    }
+
+    /* Floating emoji hearts */
+    .floating-emojis {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .floating-emojis::before {
+      content: "❤️ 💕 💖 💘 💞 💗 💓 ❤️ 💕 💖 💘 💞 💗 💓";
+      position: absolute;
+      width: 100%;
+      animation: floatEmojis 20s linear infinite;
+      font-size: 2rem;
+      line-height: 3rem;
+      white-space: nowrap;
+      color: transparent;
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+      user-select: none;
+    }
+
+    @keyframes floatEmojis {
+      0% {
+        top: 100%;
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        top: -150%;
+        transform: translateY(-100%) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1.headline {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.8em;
+      }
+
+      p, .letter {
+        font-size: 1em;
+        padding: 15px;
+      }
+
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        padding: 12px 24px;
+        font-size: 0.9em;
+      }
+
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating emojis -->
+  <div class="floating-emojis"></div>
+
+  <!-- Page 1: Welcome + Photo Gallery -->
+  <section id="step1" class="active">
+    <h1 class="headline">Happy </h1>
+    <p> 💖</p>
+
+    <div class="photo-gallery">
+      <img src="Images/1.png" alt="Photo 1">
+      <img src="Images/2.png" alt="Photo 2">
+      <img src="Images/3.png" alt="Photo 3">
+      <img src="Images/4.png" alt="Photo 4">
+      <img src="Images/5.png" alt="Photo 5">
+      <img src="Images/6.png" alt="Photo 6">
+    </div>
+
+    <button onclick="goToStep(2)">Begin Our Love Story</button>
+  </section>
+
+ 
+  <section id="step2">
+    <h2>A Letter from My Heart 💌</h2>
+    <div class="letter">
+      My dearest love,<br><br>
+      One year ago, fate brought us together. Since then, every day with you has been full of love, laughter, and magic. You've touched my heart in ways I never imagined. Your smile is my sunshine, and your love is my favorite place to be. Thank you for being my person. I love you more deeply than words can ever express. Here's to forever, together. 💕<br><br>
+      Always yours,<br>
+      — [Your Name]
+    </div>
+    <button onclick="goToStep(3)">Next Step 🎥</button>
+  </section>
+
+ 
+  <section id="step3">
+    <h2>Our Memories Together 🎥</h2>
+    <p>These moments are just a glimpse of the love we’ve shared so far. More to come. 💞</p>
+    <div class="letter">
+      <video controls>
+        <source src="Images/memories.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <button onclick="goToStep(1)">Start Over 🔁</button>
+  </section>
+
+  <script>
+    function goToStep(stepNumber) {
+      const steps = document.querySelectorAll("section");
+      steps.forEach(step => step.classList.remove("active"));
+      document.getElementById("step" + stepNumber).classList.add("active");
+    }
+  </script>
+</body>
+</html>
